@@ -1,0 +1,28 @@
+{
+	"name": "honeycomb",
+	"version": "1.0.0",
+	"description": "GraphQL Schema for consumption by Dgraph",
+	"main": "schema.graphql",
+	"scripts": {
+		"start": "docker run --rm -it -p 8080:8080 -p 9080:9080 -p 8000:8000 -v ~/dgraph:/dgraph dgraph/standalone",
+		"serve": "curl -X POST localhost:8080/admin/schema --data-binary '@schema.graphql'"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/quillerbee/honeycomb.git"
+	},
+	"keywords": [
+		"GraphQL",
+		"Dgraph"
+	],
+	"author": {
+		"name": "Abhijit Kar",
+		"email": "abhijit.kar@quillerbee.com",
+		"url": "https://www.abhijit-kar.com"
+	},
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/quillerbee/honeycomb/issues"
+	},
+	"homepage": "https://github.com/quillerbee/honeycomb#readme"
+}
