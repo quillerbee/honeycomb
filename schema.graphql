@@ -19,12 +19,31 @@ type Job {
 	title: String! @search(by: [fulltext])
 	description: String!
 	url: String!
+	salary: Salary!
+	timezone: TimeZone!
 	flag: String
+	remote: Boolean!
 	tags: [Tag!] @hasInverse(field: jobs)
 	category: Category!
 	flairs: [Flair!]
 	status: Status!
 	created: DateTime!
+}
+
+type Salary {
+	min: Int64!
+	max: Int64!
+	currency: String!
+}
+
+type TimeZone {
+	min: Int!
+	max: Int!
+}
+
+type Tag {
+	name: String! @id @search(by: [hash])
+	jobs: [Job!]
 }
 
 enum Status {
@@ -37,7 +56,6 @@ enum Flair {
 	Fulltime
 	Parttime
 	Contract
-	Remote
 	Temporary
 	Volunteer
 	Internship
@@ -55,9 +73,4 @@ enum Category {
 	BackEnd
 	Legal
 	QualityAssurance
-}
-
-type Tag {
-	name: String! @id @search(by: [hash])
-	jobs: [Job!]
 }
