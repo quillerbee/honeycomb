@@ -52,8 +52,8 @@ enum Category {
 }
 
 enum Type {
-	Fulltime
-	Parttime
+	FullTime
+	PartTime
 	Contract
 	Temporary
 	Volunteer
