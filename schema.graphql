@@ -38,6 +38,10 @@ enum Flair {
 	Parttime
 	Contract
 	Remote
+	Temporary
+	Volunteer
+	Internship
+	Other
 }
 
 type Tag {
