@@ -1,7 +1,7 @@
 # Honeycomb
 > GraphQL Schema for Quiller Bee
 
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.quillerbee.com)](https://www.quillerbee.com)
+[![Website](https://img.shields.io/badge/website-quillerbee.com-brightgreen)](https://www.quillerbee.com/)
 
 ## How to run locally?
 
