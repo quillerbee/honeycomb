@@ -20,6 +20,7 @@ type Job {
 	description: String!
 	url: String!
 	salary: Salary!
+	locations: [String!]!
 	timezone: TimeZone!
 	flag: String
 	remote: Boolean!
