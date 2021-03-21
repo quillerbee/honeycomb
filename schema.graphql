@@ -45,16 +45,16 @@ enum Flair {
 }
 
 enum Category {
-	Software Development
-	Game Development
-	Customer Support
+	SoftwareDevelopment
+	GameDevelopment
+	CustomerSupport
 	Sales
 	Marketing
 	Design
-	Front End
-	Back End
+	FrontEnd
+	BackEnd
 	Legal
-	Quality Assurance
+	QualityAssurance
 }
 
 type Tag {
