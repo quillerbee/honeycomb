@@ -16,21 +16,36 @@ type Company {
 type Job {
 	id: ID!
 	company: Company!
-	name: String! @search(by: [fulltext])
+	title: String! @search(by: [fulltext])
 	description: String!
+	category: Category! @hasInverse(field: jobs)
 	url: String!
 	flag: String
+	tags: [Tag!] @hasInverse(field: jobs)
 	flairs: [Flair!]
-	tags: [Tag!]
+	status: Status!
 	created: DateTime!
 }
 
-type Flair {
-	name: String! @id @search(by: [hash])
-	jobs: [Job]
+enum Status {
+	Active
+	Inactive
+	Deleted
+}
+
+enum Flair {
+	Fulltime
+	Partime
+	Contract
+	Remote
 }
 
 type Tag {
 	name: String! @id @search(by: [hash])
-	jobs: [Job]
+	jobs: [Job!]
+}
+
+type Category {
+	name: String! @id @search(by: [term])
+	jobs: [Job!]
 }
