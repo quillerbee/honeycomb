@@ -18,10 +18,10 @@ type Job {
 	company: Company!
 	title: String! @search(by: [fulltext])
 	description: String!
-	category: Category! @hasInverse(field: jobs)
 	url: String!
 	flag: String
 	tags: [Tag!] @hasInverse(field: jobs)
+	category: Category!
 	flairs: [Flair!]
 	status: Status!
 	created: DateTime!
@@ -44,12 +44,20 @@ enum Flair {
 	Other
 }
 
-type Tag {
-	name: String! @id @search(by: [hash])
-	jobs: [Job!]
+enum Category {
+	Software Development
+	Game Development
+	Customer Support
+	Sales
+	Marketing
+	Design
+	Front End
+	Back End
+	Legal
+	Quality Assurance
 }
 
-type Category {
-	name: String! @id @search(by: [term])
+type Tag {
+	name: String! @id @search(by: [hash])
 	jobs: [Job!]
 }
