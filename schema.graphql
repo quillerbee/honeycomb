@@ -2,6 +2,7 @@ type Company {
 	email: String! @id @search(by: [hash])
 	name: String! @search(by: [fulltext])
 	about: String!
+	url: String!
 	logo: String!
 	jobs: [Job!] @hasInverse(field: company)
 }
