@@ -1,14 +1,6 @@
-type JobBoard {
-	name: String! @id
-	jobs: [Job!] @hasInverse(field: jobBoard)
-	companies: [Company!] @hasInverse(field: jobBoard)
-	hashtags: [HashTag!] @hasInverse(field: jobBoard)
-}
-
 type Company {
 	email: String! @id @search(by: [hash])
 	name: String! @search(by: [fulltext])
-	jobBoard: JobBoard!
 	about: String!
 	logo: String!
 	jobs: [Job!] @hasInverse(field: company)
@@ -17,7 +9,6 @@ type Company {
 type Job {
 	id: ID!
 	company: Company!
-	jobBoard: JobBoard!
 	title: String! @search(by: [fulltext])
 	description: String!
 	url: String!
@@ -47,7 +38,6 @@ type TimeZone {
 type HashTag {
 	name: String! @id @search(by: [hash])
 	jobs: [Job!]
-	jobBoard: JobBoard!
 }
 
 enum Category {
