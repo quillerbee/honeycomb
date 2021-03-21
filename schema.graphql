@@ -17,7 +17,7 @@ type Job {
 	timezone: TimeZone!
 	flag: String
 	remote: Boolean!
-	hashtags: [HashTag!] @hasInverse(field: jobs)
+	hashtags: [HashTag!]! @hasInverse(field: jobs)
 	category: Category!
 	type: Type!
 	status: Status!
