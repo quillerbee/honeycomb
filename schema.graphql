@@ -1,8 +1,7 @@
 type JobBoard {
 	jobs: [Job!]
 	companies: [Company!]
-	flairs: [Flair!]
-	tags: [Tag!]
+	hashtags: [HashTag!]
 }
 
 type Company {
@@ -24,9 +23,9 @@ type Job {
 	timezone: TimeZone!
 	flag: String
 	remote: Boolean!
-	tags: [Tag!] @hasInverse(field: jobs)
+	hashtags: [HashTag!] @hasInverse(field: jobs)
 	category: Category!
-	flairs: [Flair!]
+	type: Type!
 	status: Status!
 	created: DateTime!
 }
@@ -42,18 +41,23 @@ type TimeZone {
 	max: Int!
 }
 
-type Tag {
+type HashTag {
 	name: String! @id @search(by: [hash])
 	jobs: [Job!]
 }
 
-enum Status {
-	Active
-	Inactive
-	Deleted
+enum Category {
+	SoftwareDevelopment
+	QualityAssurance
+	GameDevelopment
+	CustomerSupport
+	Sales
+	Marketing
+	Design
+	Legal
 }
 
-enum Flair {
+enum Type {
 	Fulltime
 	Parttime
 	Contract
@@ -63,15 +67,8 @@ enum Flair {
 	Other
 }
 
-enum Category {
-	SoftwareDevelopment
-	GameDevelopment
-	CustomerSupport
-	Sales
-	Marketing
-	Design
-	FrontEnd
-	BackEnd
-	Legal
-	QualityAssurance
+enum Status {
+	Active
+	Inactive
+	Deleted
 }
