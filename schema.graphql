@@ -19,7 +19,7 @@ type Job {
 	flag: String
 	remote: Boolean!
 	hashtags: [HashTag!]! @hasInverse(field: jobs)
-	category: Category!
+	category: Category! @hasInverse(field: jobs)
 	type: Type!
 	status: Status!
 	created: DateTime!
@@ -41,15 +41,9 @@ type HashTag {
 	jobs: [Job!]
 }
 
-enum Category {
-	SoftwareDevelopment
-	QualityAssurance
-	GameDevelopment
-	CustomerSupport
-	Sales
-	Marketing
-	Design
-	Legal
+type Category {
+	name: String! @id @search(by: [hash])
+	jobs: [Job!]
 }
 
 enum Type {
