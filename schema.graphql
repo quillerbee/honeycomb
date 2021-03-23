@@ -28,7 +28,7 @@ type Job {
 	hashtags: [HashTag!]! @hasInverse(field: jobs)
 	category: Category! @hasInverse(field: jobs)
 	
-	flair: String
+	flair: Flair
 	type: Type!
 	status: Status!
 
