@@ -23,7 +23,7 @@ type Job {
 	
 	remote: Boolean!
 	timezone: TimeZone!
-	locations: [String!]!
+	countries: [String!]!
 
 	hashtags: [HashTag!]! @hasInverse(field: jobs)
 	category: Category! @hasInverse(field: jobs)
