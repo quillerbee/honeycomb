@@ -20,10 +20,7 @@ type Job {
 	url: String!
 	
 	salary: Salary!
-	
-	remote: Boolean!
-	timezone: TimeZone!
-	countries: [String!]!
+	location: Location!
 
 	hashtags: [HashTag!]! @hasInverse(field: jobs)
 	category: Category! @hasInverse(field: jobs)
@@ -33,6 +30,18 @@ type Job {
 	status: Status!
 
 	created: DateTime!
+}
+
+type Location {
+	remote: Boolean!
+	worldwide: Boolean
+	countries: [String!]
+	timezone: TimeZone
+	cities: [City!]
+}
+
+type City {
+	name: String! @id
 }
 
 type Salary {
