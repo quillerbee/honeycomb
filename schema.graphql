@@ -22,7 +22,7 @@ type Job {
 	salary: Salary!
 	location: Location!
 
-	hashtags: [HashTag!]! @hasInverse(field: jobs)
+	tags: [Tag!]! @hasInverse(field: jobs)
 	category: Category! @hasInverse(field: jobs)
 	
 	flair: Flair
@@ -55,7 +55,7 @@ type TimeZone {
 	max: Int!
 }
 
-type HashTag {
+type Tag {
 	name: String! @id @search(by: [hash])
 	jobs: [Job!]
 }
